@@ -8,13 +8,24 @@ export interface EarningsEvent {
   marketCap?: string;
 }
 
-export interface AppState {
-  events: EarningsEvent[];
-  sources: string[]; // Added to store search grounding URLs
-  lastUpdated: number | null; // Timestamp
-  isLoading: boolean;
-  error: string | null;
+export interface FollowedStock {
+  ticker: string;
+  notifyOnDay: boolean;
+  notifyOneDayBefore: boolean;
 }
 
-export const CACHE_KEY = 'nasdaq_earnings_cache_v2'; // Bumped version for new structure
+export type ViewMode = 'list' | 'calendar' | 'analytics';
+
+export interface AppState {
+  events: EarningsEvent[];
+  sources: string[];
+  lastUpdated: number | null;
+  isLoading: boolean;
+  error: string | null;
+  followedStocks: FollowedStock[];
+  currentView: ViewMode;
+}
+
+export const CACHE_KEY = 'nasdaq_earnings_cache_v3'; // Bumped version
+export const SETTINGS_KEY = 'nasdaq_earnings_settings_v1';
 export const CACHE_DURATION_MS = 12 * 60 * 60 * 1000; // 12 hours
