@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Nasdaq Earnings AI",
+  "description": "An AI-powered financial calendar that tracks Nasdaq earnings reports for the upcoming 30 days using Google Search grounding.",
+  "requestFramePermissions": []
+}
